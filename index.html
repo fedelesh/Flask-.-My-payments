@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+		<title >My payments</title>
+</head>
+<body style="background-image:url(https://cs8.pikabu.ru/post_img/big/2016/05/03/0/1462224311122833219.jpg)">
+	<h1 style="font-family:gabriola;margin-left:40px;color: white;" >My payments information systems</h1>
+	<div>
+		<ul>
+			<form  action="/add" method="POST">
+				<span><input type="date" name="date" style="background: #F6F6f6;border-radius: 8px;
+					border: 1px solid #cecece; padding: 2px 0 2px 16px;">
+				<span><input type="text" name="reason" placeholder="purchase" style="background: #F6F6f6;
+					border-radius: 8px;border: 1px solid #cecece; padding: 2px 0 2px 16px;">
+				<span><input type="number" name="money" placeholder="amount of money" style="background: #F6F6f6;
+					border-radius: 8px;border: 1px solid #cecece; padding: 2px 0 2px 16px;">
+				<input type="submit" value="add" style="cursor: pointer;
+					border: 1px solid #cecece;
+					background: #f6f6f6;
+					box-shadow: inset 0px 10px 20px #ffffff;
+					border-radius: 8px;
+					padding: 2px 2px;
+					width: 60px;"></span>
+			</form>
+		</ul>
+	</div>
+	<div>
+		<form  action="/df" method="POST" >
+			<ul>
+				<input type="date"  name="inp" style="background: #F6F6f6;border-radius: 8px;
+				border: 1px solid #cecece; padding: 2px 0 2px 14px;">
+				<input type="submit" value="sort by date" style="cursor: pointer;
+					border: 1px solid #cecece;
+					background: #f6f6f6;
+					box-shadow: inset 0px 10px 20px #ffffff;
+					border-radius: 8px;
+					padding: 2px 2px;
+					width: 100px;">
+			</ul>
+		</form>
+		<form action="/clear" method="POST" >
+			<ul>
+				<input type="submit"  value="clear" style="cursor: pointer;
+					border: 1px solid #cecece;
+					background: #f6f6f6;
+					box-shadow: inset 0px 10px 20px #ffffff;
+					border-radius: 8px;
+					padding: 2px 2px;
+					width: 60px;" >
+			</ul>
+		</form>
+	</div>
+	<div>
+		<p>
+			<ul style="font-family:corbel;">
+				{% for pay in pays %}
+				<li  style="list-style-type: none;color: white;">{{ pay.date }} {{ pay.text }} {{ pay.money }}</li>
+				{% endfor %}
+			</ul>
+		</p>
+	</div>
+	<div>
+		<ul style="font-family:corbel;">
+			{% for pay2 in pays2 %}
+			<li style="list-style-type: none;color: white;"> {{ pay2.text }} {{ pay2.money }}</li>
+				{% endfor %}
+				<li style="list-style-type: none; font-family:gabriola;"><h2 style="color: white;">Total {{su}}</h2></li>
+		</ul>
+	</div>
+</body>
+</html>
